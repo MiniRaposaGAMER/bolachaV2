@@ -131,9 +131,9 @@ class FreeplayState extends MusicBeatState
 			iconArray.push(icon);
 			add(icon);
 
-			// songText.x += 40;
+			songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+			songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -187,10 +187,10 @@ class FreeplayState extends MusicBeatState
 		add(textBG);
 
 		#if PRELOAD_ALL
-		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+		var leText:String = "Pressione ESPAÇO para ouvir a musica / Pressione CTRL para abrir menu de modificadores de jogabilidade / Pressione RESET para resetar a pontuação.";
 		var size:Int = 16;
 		#else
-		var leText:String = "Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+		var leText:String = "Pressione CTRL para abrir menu de modificadores de jogabilidade / Pressione RESET para resetar a pontuação.";
 		var size:Int = 18;
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
