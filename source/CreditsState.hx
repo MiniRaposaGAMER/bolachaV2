@@ -1,6 +1,6 @@
 package;
 
-#if desktop (simplificado é o meu ovo)
+#if desktop
 import Discord.DiscordClient;
 #end
 import flash.text.TextField;
