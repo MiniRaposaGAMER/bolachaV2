@@ -134,6 +134,18 @@ class FreeplayState extends MusicBeatState
 			songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 			songText.screenCenter(X);
+			
+		}
+				// funny movements and stuff
+		elapsedtime += elapsed * Math.PI;
+		for(item in grpSongs)
+		{
+			if(songText == "caneta-banida")
+			{
+				songText.offset.x = Math.sin(elapsedtime) * 10;
+				songText.offset.y = Math.sin(elapsedtime) * 10;
+				songText.angle = Math.sin(elapsedtime) * 10;
+			}
 		}
 		WeekData.setDirectoryFromWeek();
 
