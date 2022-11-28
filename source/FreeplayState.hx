@@ -137,8 +137,6 @@ class FreeplayState extends MusicBeatState
 			
 		}
 				// funny movements and stuff
-		for(item in grpSongs)
-		{
 			if(songText:Alphabet.width == "caneta-banida")
 			{
 				songText.offset.x = Math.sin(elapsedtime) * 10;
