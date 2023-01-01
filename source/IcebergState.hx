@@ -23,7 +23,7 @@ import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
-class MainMenuState extends MusicBeatState
+class IcebergState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.2.0'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
@@ -33,21 +33,15 @@ class MainMenuState extends MusicBeatState
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
-		#if !switch 'donate', #end
-		'options'
+		'newgeneration',
+		'paulo',
+		'lulafala'
 	];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
-
-	var blammableObjects:Array<FlxSprite> = [];
 
 	override function create()
 	{
@@ -76,15 +70,13 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('iceberg'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		bg.color = TitleState.blammedLightsColors[0];
 		add(bg);
-		blammableObjects.push(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
@@ -117,7 +109,7 @@ class MainMenuState extends MusicBeatState
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			menuItem.frames = Paths.getSparrowAtlas('menuiceberg/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
@@ -239,20 +231,15 @@ class MainMenuState extends MusicBeatState
 
 								switch (daChoice)
 								{
-									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
-									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
-									#if MODS_ALLOWED
-									case 'mods':
-										MusicBeatState.switchState(new IcebergState());
-									#end
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
-									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState());
+									case 'lulafala':
+                                                                                PlayState.SONG = Song.loadFromJson('picanha-hard', 'picanha');
+                                                                                LoadingState.loadAndSwitchState(new PlayState());
+									case 'paulo':
+                                                                                PlayState.SONG = Song.loadFromJson('fiufiu-hard', 'fiufiu');
+                                                                                LoadingState.loadAndSwitchState(new PlayState());
+									case 'newgeneration':
+                                                                                PlayState.SONG = Song.loadFromJson('new-generation-hard', 'new-generation');
+                                                                                LoadingState.loadAndSwitchState(new PlayState());
 								}
 							});
 						}
@@ -301,33 +288,5 @@ class MainMenuState extends MusicBeatState
 				spr.centerOffsets();
 			}
 		});
-	}
-
-	var curLight:Int = 0;
-	public static var blammedLightsColors:Array<FlxColor> = [
-		0xff31a2fd, //blue
-		0xff31fd8c, //Green
-		0xfff794f7, //Pink
-		0xfff96d63, //Red
-		0xfffba633 //Orange
-	];
-
-	override function beatHit()
-	{
-		if (curBeat % 4 == 0) 
-		{
-			var randomNum:Int = FlxG.random.int(0, TitleState.blammedLightsColors.length-1, [curLight]);
-			var blamColor:FlxColor = TitleState.blammedLightsColors[randomNum];
-			for (spr in blammableObjects)
-			{
-				spr.color = blamColor;
-			}
-			curLight = randomNum;
-
-			FlxG.camera.zoom = 1.15;
-			FlxTween.tween(FlxG.camera, {zoom: 1}, 0.5, {ease: FlxEase.circOut});
-		}
-
-		super.beatHit();
 	}
 }
