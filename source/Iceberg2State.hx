@@ -23,7 +23,7 @@ import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
-class IcebergState extends MusicBeatState
+class Iceberg2State extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.2.0'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
@@ -33,9 +33,9 @@ class IcebergState extends MusicBeatState
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
-		'newgeneration',
-		'paulo',
-		'lulafala',
+		'cima',
+		'felis',
+		'jooj',
 		'baixo'
 	];
 
@@ -71,7 +71,7 @@ class IcebergState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('iceberg'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('iceberg2'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -84,7 +84,7 @@ class IcebergState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('iceberg'));
+		magenta = new FlxSprite(-80).loadGraphic(Paths.image('iceberg2'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
@@ -232,17 +232,16 @@ class IcebergState extends MusicBeatState
 
 								switch (daChoice)
 								{
-									case 'lulafala':
-                                                                                PlayState.SONG = Song.loadFromJson('picanha-hard', 'picanha');
+									case 'cima':
+										MusicBeatState.switchState(new IcebergState());
+									case 'felis':
+                                                                                PlayState.SONG = Song.loadFromJson('felis-hard', 'felis');
                                                                                 LoadingState.loadAndSwitchState(new PlayState());
-									case 'paulo':
-                                                                                PlayState.SONG = Song.loadFromJson('fiufiu-hard', 'fiufiu');
-                                                                                LoadingState.loadAndSwitchState(new PlayState());
-									case 'newgeneration':
-                                                                                PlayState.SONG = Song.loadFromJson('new-generation-hard', 'new-generation');
+									case 'jooj':
+                                                                                PlayState.SONG = Song.loadFromJson('jooj-hard', 'jooj');
                                                                                 LoadingState.loadAndSwitchState(new PlayState());
 									case 'baixo':
-										MusicBeatState.switchState(new Iceberg2State());
+										MusicBeatState.switchState(new Iceberg3State());
 								}
 							});
 						}
