@@ -93,7 +93,12 @@ class IcebergState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
+
+                if (!FlxG.sound.music.playing
+                {
+                FlxG.sound.playMusic(Paths.music('level1'));
+                }
+
 		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();

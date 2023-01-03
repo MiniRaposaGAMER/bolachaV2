@@ -35,8 +35,7 @@ class Iceberg3State extends MusicBeatState
 	var optionShit:Array<String> = [
 		'cima',
 		'lulafala',
-		'catworld',
-		'baixo'
+		'catworld'
 	];
 
 	var magenta:FlxSprite;
@@ -93,6 +92,12 @@ class Iceberg3State extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
+
+
+                if (!FlxG.sound.music.playing
+                {
+                FlxG.sound.playMusic(Paths.music('level3'));
+                }
 		
 		// magenta.scrollFactor.set();
 
