@@ -508,7 +508,7 @@ class TitleState extends MusicBeatState
 					if (mustUpdate) {
 						MusicBeatState.switchState(new OutdatedState());
 					} else {
-						MusicBeatState.switchState(new WarningState());
+						MusicBeatState.switchState(new MainMenuState());
 					}
 					closedState = true;
 				});
