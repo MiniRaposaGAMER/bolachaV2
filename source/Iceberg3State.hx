@@ -94,10 +94,8 @@ class Iceberg3State extends MusicBeatState
 		add(magenta);
 
 
-                if (!FlxG.sound.music.playing
-                {
-                FlxG.sound.playMusic(Paths.music('level3'));
-                }
+		FlxG.sound.playMusic(Paths.music('level3'), 0);
+
 		
 		// magenta.scrollFactor.set();
 

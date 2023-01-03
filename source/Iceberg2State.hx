@@ -94,10 +94,7 @@ class Iceberg2State extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-                if (!FlxG.sound.music.playing
-                {
-                FlxG.sound.playMusic(Paths.music('level2'));
-                }
+		FlxG.sound.playMusic(Paths.music('level2'), 0);
 		
 		// magenta.scrollFactor.set();
 
