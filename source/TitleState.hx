@@ -648,9 +648,9 @@ class TitleState extends MusicBeatState
 				// credTextShit.visible = true;
 				case 4:
 					#if PSYCH_WATERMARKS
-					addMoreText('Shadow Mario', 15);
-					addMoreText('RiverOaken', 15);
-					addMoreText('shubs', 15);
+					addMoreText('Mini Raposa Gamer', 15);
+					addMoreText('And', 15);
+					addMoreText('Baile da sexta Team', 15);
 					#else
 					addMoreText('present');
 					#end
@@ -670,7 +670,7 @@ class TitleState extends MusicBeatState
 				case 8:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
-				// credTextShit.text += '\nNewgrounds';
+				// credTextShit.text += '\nCLICK JOGOS';
 				case 9:
 					deleteCoolText();
 					ngSpr.visible = false;
@@ -690,13 +690,13 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
 				case 14:
-					addMoreText('Friday');
+					addMoreText('BAILE');
 				// credTextShit.visible = true;
 				case 15:
-					addMoreText('Night');
-				// credTextShit.text += '\nNight';
+					addMoreText('DA');
+				// credTextShit.text += '\nDA';
 				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('SE'); // credTextShit.text += '\nSE';
 
 				case 17:
 					skipIntro();
