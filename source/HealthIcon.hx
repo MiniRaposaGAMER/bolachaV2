@@ -21,13 +21,13 @@ class HealthIcon extends FlxSprite
 		scrollFactor.set();
 	}
 
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
+    override function update(elapsed:Float)
+    {
+        super.update(elapsed);
 
-		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 12, sprTracker.y - 30);
-	}
+        if (sprTracker != null)
+            setPosition(sprTracker.x - 170, sprTracker.y - 30);
+    }
 
 	public function swapOldIcon() {
 		if(isOldIcon = !isOldIcon) changeIcon('bf-old');
