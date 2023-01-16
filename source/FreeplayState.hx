@@ -106,6 +106,16 @@ class FreeplayState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
+		mesa = new FlxSprite().loadGraphic(Paths.image('mesaDeBar'));
+		mesa.antialiasing = ClientPrefs.globalAntialiasing;
+		add(mesa);
+		mesa.screenCenter();
+
+		coisapraficarbonito = new FlxSprite().loadGraphic(Paths.image('menufront'));
+		coisapraficarbonito.antialiasing = ClientPrefs.globalAntialiasing;
+		add(coisapraficarbonito);
+		coisapraficarbonito.screenCenter();
+
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 

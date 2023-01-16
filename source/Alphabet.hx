@@ -165,7 +165,6 @@ class Alphabet extends FlxSpriteGroup
 				x = FlxMath.lerp(x, (targetY * distancePerItem.x) + startPosition.x, lerpVal);
 			if(changeY)
 				y = FlxMath.lerp(y, (targetY * 1.3 * distancePerItem.y) + startPosition.y, lerpVal);
-                                screenCenter(X);
 		}
 		super.update(elapsed);
 	}
