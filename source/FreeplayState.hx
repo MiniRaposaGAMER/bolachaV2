@@ -49,6 +49,10 @@ class FreeplayState extends MusicBeatState
 	var bg:FlxSprite;
 	var coisapraficarbonito:FlxSprite;
 	var mesa:FlxSprite;
+	var bolacha:FlxSprite;
+	var tomer:FlxSprite;
+	var jooj:FlxSprite;
+	var brasonic:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
@@ -567,6 +571,7 @@ class FreeplayState extends MusicBeatState
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
+	}
 	}
 
 		switch(songs[curSelected].week) 
