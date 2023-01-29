@@ -113,6 +113,30 @@ class FreeplayState extends MusicBeatState
 		add(mesa);
 		mesa.screenCenter();
 
+		bolacha = new FlxSprite().loadGraphic(Paths.image('portraitbolacha'));
+		bolacha.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bolacha);
+		bolacha.screenCenter();
+		bolacha.alpha = 0.0;
+
+		tomer = new FlxSprite().loadGraphic(Paths.image('portraittomer'));
+		tomer.antialiasing = ClientPrefs.globalAntialiasing;
+		add(tomer);
+		tomer.screenCenter();
+		tomer.alpha = 0.0;
+
+		jooj = new FlxSprite().loadGraphic(Paths.image('portraitjooj'));
+		jooj.antialiasing = ClientPrefs.globalAntialiasing;
+		add(jooj);
+		jooj.screenCenter();
+		jooj.alpha = 0.0;
+
+		brasonic = new FlxSprite().loadGraphic(Paths.image('portraitbrasonic'));
+		brasonic.antialiasing = ClientPrefs.globalAntialiasing;
+		add(brasonic);
+		brasonic.screenCenter();
+		brasonic.alpha = 0.0;
+
 		coisapraficarbonito = new FlxSprite().loadGraphic(Paths.image('menufront'));
 		coisapraficarbonito.antialiasing = ClientPrefs.globalAntialiasing;
 		add(coisapraficarbonito);
@@ -544,7 +568,41 @@ class FreeplayState extends MusicBeatState
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
 	}
-}
+
+		switch(songs[curSelected].week) 
+		{
+			case 0:  //breaking
+			{	
+				bolacha.alpha = 1.0;
+				tomer.alpha = 0.0;
+				jooj.alpha = 0.0;
+				brasonic.alpha = 0.0;
+			}
+			case 2:  //tomer
+			{
+				bolacha.alpha = 0.0;
+				tomer.alpha = 1.0;
+				jooj.alpha = 0.0;
+				brasonic.alpha = 0.0;
+			}
+			case 3: //jooj
+			{
+				bolacha.alpha = 0.0;
+				tomer.alpha = 0.0;
+				jooj.alpha = 1.0;
+				brasonic.alpha = 0.0;
+			}
+			case 4: //brasonic
+			{
+				bolacha.alpha = 0.0;
+				tomer.alpha = 0.0;
+				jooj.alpha = 0.0;
+				brasonic.alpha = 1.0;
+			}
+		}
+	}
+	}
+
 
 class SongMetadata
 {
