@@ -46,7 +46,8 @@ jobs:
           haxelib install tjson
           haxelib install hxjsonast
           haxelib install hxCodec
-          haxelib install hxCodec
+          haxelib remove hxCodec
+          haxelib install hxCodec 2.5.1
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
@@ -95,7 +96,7 @@ jobs:
           haxelib install hxjsonast
           haxelib install hxCodec
           haxelib remove hxCodec
-          haxelib install hxCodec
+          haxelib install hxCodec 2.5.1          
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
@@ -151,7 +152,8 @@ jobs:
           haxelib install hxcpp-debug-server
           haxelib remove flixel
           haxelib remove hxCodec
-          haxelib install hxCodec
+          haxelib remove hxCodec
+          haxelib install hxCodec 2.5.1
           haxelib install flixel 4.11.0
           haxelib remove flixel-addons
           haxelib install flixel-addons 2.11.0
